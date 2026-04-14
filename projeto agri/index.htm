@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte | Início - Produção Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🌱 Agro<span>Forte</span></div>
+            <div class="nav-links">
+                <a href="index.html" class="active">🏠 Início</a>
+                <a href="sustentabilidade.html">🌿 Sustentabilidade</a>
+                <a href="tecnologias.html">⚙️ Tecnologias</a>
+                <a href="impacto.html">📊 Impacto</a>
+                <a href="contato.html">📞 Contato</a>
+            </div>
+        </header>
+
+        <div class="hero">
+            <h1>Agro Forte, <span style="color:#a7e0c0">Futuro Sustentável</span></h1>
+            <p>Equilíbrio entre produção agrícola e meio ambiente. Tecnologia, inovação e práticas regenerativas para alimentar o mundo preservando o amanhã.</p>
+            <a href="sustentabilidade.html" class="btn">🌾 Conheça as Práticas</a>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">35M+</div>
+                <p>Hectares conservados</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">42%</div>
+                <p>Redução de emissões</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">280Bi+</div>
+                <p>Árvores plantadas</p>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🌿</div>
+                <h3>Produção + Conservação</h3>
+                <p>O agro sustentável alia técnicas de baixo carbono, manejo regenerativo e inovação para garantir alimentos sem esgotar recursos naturais.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Uso Eficiente da Água</h3>
+                <p>Irrigação por gotejamento, captação de chuva e reuso reduzem em até 60% o consumo hídrico na produção agrícola.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">☀️</div>
+                <h3>Energia Limpa</h3>
+                <p>Biogás, biodigestores e energia solar tornam propriedades autossuficientes e de baixo carbono.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Agro Forte, Futuro Sustentável — Produção que respeita o planeta</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">🌱 ODS 2, 12, 13 e 15 em ação</p>
+        </footer>
+    </div>
+
+    <!-- CHATBOT IA -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header" id="chatbotHeader">
+            <div><strong>🤖 Agro IA Assistente</strong><br><small>Especialista em sustentabilidade</small></div>
+            <button id="chatbotToggle" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">🗖</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot">
+                <div class="message-content">🌱 Olá! Sou a Agro IA. Pergunte sobre: agro sustentável, bioinsumos, água, carbono neutro, energia limpa, ILPF, agricultura de precisão, solo, dicas ecológicas ou certificações!</div>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Digite sua pergunta...">
+            <button class="chatbot-send" id="chatbotSendBtn">➤</button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // IA DO CHATBOT - BASE DE CONHECIMENTO
+        // ============================================
+        const respostasIA = {
+            saudacoes: ["olá", "oi", "ola", "bom dia", "boa tarde", "boa noite", "iae", "opa", "hey", "e aí"],
+            respSaudacao: "🌱 Olá! Sou a Agro IA. Como posso ajudar você no agro sustentável hoje?",
+            
+            agro: ["o que é agro sustentável", "agricultura sustentável", "agro sustentável", "definição", "significa"],
+            respAgro: "🌿 Agro sustentável é um modelo que alia alta produtividade com conservação ambiental. Inclui plantio direto, ILPF, bioinsumos, uso eficiente da água e recuperação de áreas degradadas.",
+            
+            bio: ["bioinsumo", "bioinsumos", "controle biológico", "defensivo natural", "biológico", "trichoderma", "bacillus"],
+            respBio: "🦋 Bioinsumos são produtos à base de microrganismos ou extratos vegetais que substituem defensivos químicos. Reduzem custos em até 40%, protegem o solo e a saúde!",
+            
+            agua: ["água", "economizar água", "irrigação", "reuso", "captação", "gotejamento", "chuva"],
+            respAgua: "💧 Dicas: irrigação por gotejamento (economia de 60%), captação de chuva, reuso de água e sensores de umidade do solo.",
+            
+            carbono: ["carbono", "carbono neutro", "co2", "emissões", "pegada", "climáticas"],
+            respCarbono: "🌍 Agricultura de carbono neutro usa plantio direto, rotação de culturas e integração para remover CO₂ da atmosfera. Pode sequestrar até 1 bilhão de toneladas/ano no Brasil!",
+            
+            energia: ["energia", "energia limpa", "solar", "biogás", "renovável", "fotovoltaica", "biodigestor"],
+            respEnergia: "☀️ Energias renováveis no campo: solar fotovoltaica, biogás (dejetos animais) e biomassa. Economia de até 90% na conta de luz!",
+            
+            ilpf: ["ilpf", "integração", "lavoura pecuária", "agrofloresta", "saf", "sistemas agroflorestais"],
+            respIlpf: "🌳 ILPF e SAFs combinam árvores, culturas e animais. Aumentam biodiversidade, sequestram carbono, diversificam a renda e recuperam solos degradados.",
+            
+            precisao: ["precisão", "drones", "sensores", "ia", "iot", "big data", "satélite", "agtech"],
+            respPrecisao: "📡 Agricultura de precisão usa drones, sensores e IA para aplicar insumos no local certo. Reduz desperdícios em até 40% e aumenta produtividade.",
+            
+            solo: ["solo", "conservação solo", "plantio direto", "erosão", "matéria orgânica", "terra"],
+            respSolo: "🪴 Conservação do solo: plantio direto, rotação de culturas, cobertura verde e compostagem. Solo saudável = mais produtividade e retenção de água!",
+            
+            dicas: ["dica", "dicas", "sugestão", "práticas", "como posso", "faça", "recomenda"],
+            respDicas: "💡 5 dicas: 1) Plante nativas em nascentes, 2) Reutilize água da chuva, 3) Invista em bioinsumos, 4) Faça rotação de culturas, 5) Instale energia solar!",
+            
+            beneficios: ["benefício", "vantagem", "compensa", "lucro", "rentabilidade", "economia"],
+            respBeneficios: "💰 Vantagens: redução de custos (-40% insumos), acesso a mercados verdes (premium), resiliência climática e valorização da terra (+30%).",
+            
+            certificacoes: ["certificação", "selo", "orgânico", "carbono neutro", "rainforest", "verde"],
+            respCert: "🏆 Certificações: Orgânico Brasil, Rainforest Alliance, Carbono Neutro. Agregam valor (20-50% mais caro) e abrem mercados internacionais.",
+            
+            politicas: ["política", "incentivo", "governo", "lei", "programa", "financiamento", "abc", "crédito"],
+            respPoliticas: "📜 Plano ABC+ financia práticas sustentáveis com juros reduzidos (6% ao ano). PSA remunera produtores que conservam florestas e nascentes.",
+            
+            tecnologias: ["tecnologia", "inovação", "startup", "agtechs", "ferramentas", "soluções"],
+            respTecnologias: "🚀 Tecnologias: Drones, plataformas de gestão, biológicos (Trichoderma), IoT, Blockchain para rastreabilidade sustentável.",
+            
+            culturas: ["soja", "milho", "café", "cana", "feijão", "arroz", "trigo", "planta"],
+            respCulturas: "🌽 Culturas sustentáveis: Soja (ILPF + fixação biológica), Café (sombreado em SAFs), Cana (bioenergia), Milho (rotação com crotalária)."
+        };
+
+        function perguntarIA(pergunta) {
+            let q = pergunta.toLowerCase().trim();
+            q = q.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            
+            for(let s of respostasIA.saudacoes) {
+                if(q.includes(s)) return respostasIA.respSaudacao;
+            }
+            if(q.includes("agro") || q.includes("sustentável") || q.includes("agricultura") || q.includes("definição")) return respostasIA.respAgro;
+            if(q.includes("bio") || q.includes("biológico") || q.includes("defensivo") || q.includes("trichoderma")) return respostasIA.respBio;
+            if(q.includes("água") || q.includes("irrigação") || q.includes("reuso") || q.includes("chuva") || q.includes("gotejamento")) return respostasIA.respAgua;
+            if(q.includes("carbono") || q.includes("co2") || q.includes("emissão") || q.includes("pegada")) return respostasIA.respCarbono;
+            if(q.includes("energia") || q.includes("solar") || q.includes("biogás") || q.includes("renovável")) return respostasIA.respEnergia;
+            if(q.includes("ilpf") || q.includes("integração") || q.includes("agrofloresta") || q.includes("saf")) return respostasIA.respIlpf;
+            if(q.includes("precisão") || q.includes("drone") || q.includes("sensor") || q.includes("ia") || q.includes("iot")) return respostasIA.respPrecisao;
+            if(q.includes("solo") || q.includes("plantio") || q.includes("erosão") || q.includes("terra")) return respostasIA.respSolo;
+            if(q.includes("dica") || q.includes("sugestão") || q.includes("prática")) return respostasIA.respDicas;
+            if(q.includes("benefício") || q.includes("vantagem") || q.includes("lucro") || q.includes("compensa")) return respostasIA.respBeneficios;
+            if(q.includes("certificação") || q.includes("selo") || q.includes("orgânico")) return respostasIA.respCert;
+            if(q.includes("política") || q.includes("incentivo") || q.includes("governo") || q.includes("abc")) return respostasIA.respPoliticas;
+            if(q.includes("tecnologia") || q.includes("inovação") || q.includes("agtech")) return respostasIA.respTecnologias;
+            if(q.includes("soja") || q.includes("milho") || q.includes("café") || q.includes("cana")) return respostasIA.respCulturas;
+            
+            return "🌱 Ainda estou aprendendo! Você pode perguntar sobre: agro sustentável, bioinsumos, água, carbono neutro, energia limpa, ILPF, agricultura de precisão, solo, dicas ecológicas, certificações, políticas públicas, tecnologias ou culturas. Qual sua dúvida?";
+        }
+
+        // Inicializar Chatbot
+        const chatbot = document.getElementById('chatbot');
+        const toggleBtn = document.getElementById('chatbotToggle');
+        const messagesDiv = document.getElementById('chatbotMessages');
+        const inputField = document.getElementById('chatbotInput');
+        const sendBtn = document.getElementById('chatbotSendBtn');
+        let isMinimized = false;
+
+        if(toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                isMinimized = !isMinimized;
+                if(isMinimized) {
+                    chatbot.classList.add('minimized');
+                    toggleBtn.innerHTML = '🗕';
+                } else {
+                    chatbot.classList.remove('minimized');
+                    toggleBtn.innerHTML = '🗖';
+                }
+            });
+        }
+
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.innerHTML = `<div class="message-content">${text}</div>`;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `<div class="message-content"><span style="animation: pulse 1s infinite;">●</span> <span style="animation: pulse 1s infinite 0.2s;">●</span> <span style="animation: pulse 1s infinite 0.4s;">●</span></div>`;
+            messagesDiv.appendChild(typingDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if(typing) typing.remove();
+        }
+
+        function enviarMensagem() {
+            const pergunta = inputField.value.trim();
+            if(!pergunta) return;
+            addMessage(pergunta, true);
+            inputField.value = '';
+            showTyping();
+            setTimeout(() => {
+                removeTyping();
+                const resposta = perguntarIA(pergunta);
+                addMessage(resposta, false);
+            }, 500);
+        }
+
+        if(sendBtn) sendBtn.addEventListener('click', enviarMensagem);
+        if(inputField) {
+            inputField.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') enviarMensagem();
+            });
+        }
+    </script>
+</body>
+</html>

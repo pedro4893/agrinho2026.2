@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte | Impacto Ambiental e Social</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🌱 Agro<span>Forte</span></div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Início</a>
+                <a href="sustentabilidade.html">🌿 Sustentabilidade</a>
+                <a href="tecnologias.html">⚙️ Tecnologias</a>
+                <a href="impacto.html" class="active">📊 Impacto</a>
+                <a href="contato.html">📞 Contato</a>
+            </div>
+        </header>
+
+        <div class="hero">
+            <h1>📊 Impacto <span style="color:#a7e0c0">Real</span></h1>
+            <p>Números que comprovam: produção e meio ambiente podem caminhar juntos</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card"><div class="stat-number">1 Bi</div><p>Toneladas de CO₂ sequestradas/ano</p></div>
+            <div class="stat-card"><div class="stat-number">42 Bi</div><p>m³ de água economizados</p></div>
+            <div class="stat-card"><div class="stat-number">8.2 M</div><p>Hectares de vegetação nativa integrados</p></div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card"><div class="card-icon">🌍</div><h3>Redução de Emissões</h3><p>70% das emissões evitadas com integração lavoura-pecuária em comparação com sistemas convencionais.</p></div>
+            <div class="card"><div class="card-icon">📈</div><h3>Aumento de Produtividade</h3><p>+15% produtividade com manejo regenerativo e agricultura de precisão.</p></div>
+            <div class="card"><div class="card-icon">🧪</div><h3>Redução de Químicos</h3><p>90% redução de defensivos químicos com uso de bioinsumos e controle biológico.</p></div>
+            <div class="card"><div class="card-icon">💧</div><h3>Recuperação de Nascentes</h3><p>+5.000 nascentes recuperadas com SAFs e proteção de APPs nos últimos 5 anos.</p></div>
+            <div class="card"><div class="card-icon">👨‍🌾</div><h3>Geração de Emprego</h3><p>+2 milhões de empregos verdes criados no setor agro sustentável.</p></div>
+            <div class="card"><div class="card-icon">🏆</div><h3>Brasil Referência</h3><p>O Brasil é líder mundial em agricultura tropical sustentável e tecnologia de baixo carbono.</p></div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; text-align: center;">
+            <h2>🎯 Contribuição para os ODS</h2>
+            <div class="stats" style="margin-top: 20px;">
+                <div class="stat-card"><div class="stat-number">ODS 2</div><p>Fome Zero</p></div>
+                <div class="stat-card"><div class="stat-number">ODS 12</div><p>Consumo Responsável</p></div>
+                <div class="stat-card"><div class="stat-number">ODS 13</div><p>Ação Climática</p></div>
+                <div class="stat-card"><div class="stat-number">ODS 15</div><p>Vida Terrestre</p></div>
+            </div>
+        </div>
+
+        <footer><p>© 2025 Agro Forte, Futuro Sustentável — Impacto que transforma</p></footer>
+    </div>
+
+    <!-- CHATBOT IA -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header" id="chatbotHeader">
+            <div><strong>🤖 Agro IA Assistente</strong><br><small>Dados e impacto</small></div>
+            <button id="chatbotToggle" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">🗖</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot"><div class="message-content">🌱 Pergunte sobre números do agro sustentável, benefícios, redução de emissões ou impacto ambiental!</div></div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Digite sua pergunta...">
+            <button class="chatbot-send" id="chatbotSendBtn">➤</button>
+        </div>
+    </div>
+
+    <script>
+        const respostasIA = {
+            saudacoes: ["olá", "oi", "ola", "bom dia", "boa tarde", "boa noite"],
+            respSaudacao: "🌱 Olá! Pergunte sobre impacto ambiental!",
+            carbono: ["carbono", "co2", "emissões", "climáticas"],
+            respCarbono: "🌍 O agro sustentável sequestra 1 bilhão de toneladas de CO₂ por ano no Brasil!",
+            agua: ["água", "economia", "redução"],
+            respAgua: "💧 As práticas sustentáveis economizaram 42 bilhões de m³ de água!",
+            beneficio: ["benefício", "vantagem", "impacto"],
+            respBeneficio: "💰 Redução de 90% de químicos, +15% produtividade e +2 milhões de empregos verdes!",
+            default: "🌱 Pergunte sobre: redução de CO₂, economia de água, produtividade ou empregos verdes!"
+        };
+        function perguntarIA(pergunta) {
+            let q = pergunta.toLowerCase();
+            for(let s of respostasIA.saudacoes) if(q.includes(s)) return respostasIA.respSaudacao;
+            if(q.includes("carbono") || q.includes("co2") || q.includes("emissão")) return respostasIA.respCarbono;
+            if(q.includes("água") || q.includes("economia")) return respostasIA.respAgua;
+            if(q.includes("benefício") || q.includes("vantagem") || q.includes("impacto")) return respostasIA.respBeneficio;
+            return respostasIA.default;
+        }
+        const chatbot = document.getElementById('chatbot');
+        const toggleBtn = document.getElementById('chatbotToggle');
+        const messagesDiv = document.getElementById('chatbotMessages');
+        const inputField = document.getElementById('chatbotInput');
+        const sendBtn = document.getElementById('chatbotSendBtn');
+        let isMinimized = false;
+        if(toggleBtn) toggleBtn.addEventListener('click', () => { isMinimized = !isMinimized; if(isMinimized) { chatbot.classList.add('minimized'); toggleBtn.innerHTML = '🗕'; } else { chatbot.classList.remove('minimized'); toggleBtn.innerHTML = '🗖'; } });
+        function addMessage(text, isUser = false) { const messageDiv = document.createElement('div'); messageDiv.className = `message ${isUser ? 'user' : 'bot'}`; messageDiv.innerHTML = `<div class="message-content">${text}</div>`; messagesDiv.appendChild(messageDiv); messagesDiv.scrollTop = messagesDiv.scrollHeight; }
+        function showTyping() { const typingDiv = document.createElement('div'); typingDiv.className = 'message bot'; typingDiv.id = 'typingIndicator'; typingDiv.innerHTML = `<div class="message-content"><span style="animation: pulse 1s infinite;">●</span> <span style="animation: pulse 1s infinite 0.2s;">●</span> <span style="animation: pulse 1s infinite 0.4s;">●</span></div>`; messagesDiv.appendChild(typingDiv); messagesDiv.scrollTop = messagesDiv.scrollHeight; }
+        function removeTyping() { const typing = document.getElementById('typingIndicator'); if(typing) typing.remove(); }
+        function enviarMensagem() { const pergunta = inputField.value.trim(); if(!pergunta) return; addMessage(pergunta, true); inputField.value = ''; showTyping(); setTimeout(() => { removeTyping(); addMessage(perguntarIA(pergunta), false); }, 500); }
+        if(sendBtn) sendBtn.addEventListener('click', enviarMensagem);
+        if(inputField) inputField.addEventListener('keypress', (e) => { if(e.key === 'Enter') enviarMensagem(); });
+    </script>
+</body>
+</html>

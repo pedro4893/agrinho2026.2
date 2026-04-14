@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte | Tecnologias Verdes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🌱 Agro<span>Forte</span></div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Início</a>
+                <a href="sustentabilidade.html">🌿 Sustentabilidade</a>
+                <a href="tecnologias.html" class="active">⚙️ Tecnologias</a>
+                <a href="impacto.html">📊 Impacto</a>
+                <a href="contato.html">📞 Contato</a>
+            </div>
+        </header>
+
+        <div class="hero">
+            <h1>⚙️ Tecnologias <span style="color:#a7e0c0">que Regeneram</span></h1>
+            <p>Inovação de ponta para um agro produtivo e sustentável</p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #1b4332, #2d6a4f); padding: 40px; border-radius: 30px; text-align: center; margin-bottom: 40px;">
+            <h2 style="margin-bottom: 15px;">🤖 IA e Agricultura de Precisão</h2>
+            <p>Drones, sensores e inteligência artificial aplicam insumos no local e hora certos, reduzindo desperdícios em até 40% e aumentando produtividade</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🛸</div>
+                <h3>Drones Agrícolas</h3>
+                <p>Monitoramento de lavouras, mapeamento de pragas, pulverização localizada e plantio de sementes com precisão milimétrica.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3>Sensores IoT</h3>
+                <p>Sensores de solo, clima e umidade em tempo real. Dados na nuvem para decisões precisas e automáticas.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧬</div>
+                <h3>Biofábricas</h3>
+                <p>Produção de microrganismos benéficos (Trichoderma, Bacillus) para controle biológico de pragas e doenças.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">☀️</div>
+                <h3>Biodigestores</h3>
+                <p>Transformam dejetos animais em biogás (energia elétrica) e biofertilizante (adubo orgânico de alta qualidade).</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Big Data</h3>
+                <p>Análise de grandes volumes de dados para prever safras, otimizar recursos, reduzir perdas e aumentar lucros.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔗</div>
+                <h3>Blockchain</h3>
+                <p>Rastreabilidade da fazenda até a mesa, garantindo origem sustentável, transparência e agregando valor ao produto.</p>
+            </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px;">
+            <h2 style="text-align: center;">🚀 Tendências para 2025</h2>
+            <div class="stats" style="margin-top: 20px;">
+                <div class="stat-card"><div class="stat-number">+200%</div><p>Crescimento em AgTechs</p></div>
+                <div class="stat-card"><div class="stat-number">US$ 22Bi</div><p>Mercado de bioinsumos</p></div>
+                <div class="stat-card"><div class="stat-number">1M+</div><p>Fazendas conectadas</p></div>
+            </div>
+        </div>
+
+        <footer><p>© 2025 Agro Forte, Futuro Sustentável — Tecnologia a serviço da natureza</p></footer>
+    </div>
+
+    <!-- CHATBOT IA -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header" id="chatbotHeader">
+            <div><strong>🤖 Agro IA Assistente</strong><br><small>Especialista em tecnologias</small></div>
+            <button id="chatbotToggle" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">🗖</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot"><div class="message-content">🌱 Pergunte sobre agricultura de precisão, drones, sensores, IA no campo, biogás ou bioinsumos!</div></div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Digite sua pergunta...">
+            <button class="chatbot-send" id="chatbotSendBtn">➤</button>
+        </div>
+    </div>
+
+    <script>
+        const respostasIA = {
+            saudacoes: ["olá", "oi", "ola", "bom dia", "boa tarde", "boa noite"],
+            respSaudacao: "🌱 Olá! Pergunte sobre tecnologias verdes!",
+            precisao: ["precisão", "drones", "sensores", "ia", "iot", "big data", "satélite"],
+            respPrecisao: "📡 Agricultura de precisão usa drones e sensores para aplicar insumos no local certo. Reduz desperdícios em até 40%!",
+            bio: ["bioinsumo", "bioinsumos", "biológico", "trichoderma"],
+            respBio: "🦋 Bioinsumos são produzidos em biofábricas. Substituem químicos e reduzem custos em até 40%.",
+            energia: ["energia", "biogás", "solar", "biodigestor"],
+            respEnergia: "☀️ Biodigestores transformam dejetos em biogás (energia) e biofertilizante. Economia de até 90% na conta de luz!",
+            default: "🌱 Pergunte sobre: agricultura de precisão, drones, bioinsumos, biogás, sensores IoT ou blockchain!"
+        };
+        function perguntarIA(pergunta) {
+            let q = pergunta.toLowerCase();
+            for(let s of respostasIA.saudacoes) if(q.includes(s)) return respostasIA.respSaudacao;
+            if(q.includes("precisão") || q.includes("drone") || q.includes("sensor") || q.includes("ia")) return respostasIA.respPrecisao;
+            if(q.includes("bio")) return respostasIA.respBio;
+            if(q.includes("energia") || q.includes("biogás") || q.includes("solar")) return respostasIA.respEnergia;
+            return respostasIA.default;
+        }
+        const chatbot = document.getElementById('chatbot');
+        const toggleBtn = document.getElementById('chatbotToggle');
+        const messagesDiv = document.getElementById('chatbotMessages');
+        const inputField = document.getElementById('chatbotInput');
+        const sendBtn = document.getElementById('chatbotSendBtn');
+        let isMinimized = false;
+        if(toggleBtn) toggleBtn.addEventListener('click', () => { isMinimized = !isMinimized; if(isMinimized) { chatbot.classList.add('minimized'); toggleBtn.innerHTML = '🗕'; } else { chatbot.classList.remove('minimized'); toggleBtn.innerHTML = '🗖'; } });
+        function addMessage(text, isUser = false) { const messageDiv = document.createElement('div'); messageDiv.className = `message ${isUser ? 'user' : 'bot'}`; messageDiv.innerHTML = `<div class="message-content">${text}</div>`; messagesDiv.appendChild(messageDiv); messagesDiv.scrollTop = messagesDiv.scrollHeight; }
+        function showTyping() { const typingDiv = document.createElement('div'); typingDiv.className = 'message bot'; typingDiv.id = 'typingIndicator'; typingDiv.innerHTML = `<div class="message-content"><span style="animation: pulse 1s infinite;">●</span> <span style="animation: pulse 1s infinite 0.2s;">●</span> <span style="animation: pulse 1s infinite 0.4s;">●</span></div>`; messagesDiv.appendChild(typingDiv); messagesDiv.scrollTop = messagesDiv.scrollHeight; }
+        function removeTyping() { const typing = document.getElementById('typingIndicator'); if(typing) typing.remove(); }
+        function enviarMensagem() { const pergunta = inputField.value.trim(); if(!pergunta) return; addMessage(pergunta, true); inputField.value = ''; showTyping(); setTimeout(() => { removeTyping(); addMessage(perguntarIA(pergunta), false); }, 500); }
+        if(sendBtn) sendBtn.addEventListener('click', enviarMensagem);
+        if(inputField) inputField.addEventListener('keypress', (e) => { if(e.key === 'Enter') enviarMensagem(); });
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte | Sustentabilidade - Práticas Ecológicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🌱 Agro<span>Forte</span></div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Início</a>
+                <a href="sustentabilidade.html" class="active">🌿 Sustentabilidade</a>
+                <a href="tecnologias.html">⚙️ Tecnologias</a>
+                <a href="impacto.html">📊 Impacto</a>
+                <a href="contato.html">📞 Contato</a>
+            </div>
+        </header>
+
+        <div class="hero">
+            <h1>🌿 Práticas <span style="color:#a7e0c0">Sustentáveis</span></h1>
+            <p>Conheça as principais técnicas que equilibram produção e conservação ambiental</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🌾</div>
+                <h3>Plantio Direto</h3>
+                <p>Sem revolvimento do solo, mantém palhada e matéria orgânica, reduz erosão em até 80% e aumenta retenção de água.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌳</div>
+                <h3>ILPF - Integração</h3>
+                <p>Combina lavoura, pecuária e floresta no mesmo espaço. Aumenta biodiversidade, sequestra carbono e diversifica renda.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🦋</div>
+                <h3>Controle Biológico</h3>
+                <p>Uso de predadores naturais e microrganismos (Trichoderma, Bacillus) no lugar de defensivos químicos. Redução de até 90%.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Irrigação Eficiente</h3>
+                <p>Gotejamento e sensores de umidade reduzem consumo de água em até 60% em comparação com irrigação convencional.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">♻️</div>
+                <h3>Compostagem</h3>
+                <p>Transforma resíduos orgânicos (restos de culturas, esterco) em adubo rico, eliminando fertilizantes químicos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">☀️</div>
+                <h3>Energia Solar</h3>
+                <p>Painéis fotovoltaicos e biogás tornam a propriedade energeticamente independente e de baixo carbono.</p>
+            </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; margin-top: 30px;">
+            <h2 style="text-align: center;">📊 Benefícios Comprovados</h2>
+            <div class="stats" style="margin-top: 20px;">
+                <div class="stat-card">
+                    <div class="stat-number">-40%</div>
+                    <p>Custo com insumos</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+50%</div>
+                    <p>Produtividade do solo</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">-60%</div>
+                    <p>Consumo de água</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Agro Forte, Futuro Sustentável — Práticas que regeneram o planeta</p>
+        </footer>
+    </div>
+
+    <!-- CHATBOT IA -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header" id="chatbotHeader">
+            <div><strong>🤖 Agro IA Assistente</strong><br><small>Especialista em sustentabilidade</small></div>
+            <button id="chatbotToggle" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">🗖</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot">
+                <div class="message-content">🌱 Olá! Pergunte sobre práticas sustentáveis, bioinsumos, ILPF, compostagem ou dicas ecológicas!</div>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Digite sua pergunta...">
+            <button class="chatbot-send" id="chatbotSendBtn">➤</button>
+        </div>
+    </div>
+
+    <script>
+        const respostasIA = {
+            saudacoes: ["olá", "oi", "ola", "bom dia", "boa tarde", "boa noite"],
+            respSaudacao: "🌱 Olá! Sou a Agro IA. Como posso ajudar?",
+            agro: ["o que é agro sustentável", "agricultura sustentável", "agro sustentável"],
+            respAgro: "🌿 Agro sustentável alia produtividade com conservação ambiental. Inclui plantio direto, ILPF, bioinsumos e uso eficiente da água.",
+            bio: ["bioinsumo", "bioinsumos", "controle biológico"],
+            respBio: "🦋 Bioinsumos substituem defensivos químicos. Reduzem custos em até 40% e protegem o solo e a saúde.",
+            agua: ["água", "economizar água", "irrigação"],
+            respAgua: "💧 Irrigação por gotejamento economiza 60% de água. Capture água da chuva e reutilize!",
+            dicas: ["dica", "dicas", "sugestão", "práticas"],
+            respDicas: "💡 Dicas: plante nativas em nascentes, reutilize água, invista em bioinsumos, faça rotação de culturas!",
+            default: "🌱 Pergunte sobre: agro sustentável, bioinsumos, água, dicas ecológicas, ILPF ou compostagem!"
+        };
+
+        function perguntarIA(pergunta) {
+            let q = pergunta.toLowerCase();
+            for(let s of respostasIA.saudacoes) if(q.includes(s)) return respostasIA.respSaudacao;
+            if(q.includes("agro") || q.includes("sustentável")) return respostasIA.respAgro;
+            if(q.includes("bio")) return respostasIA.respBio;
+            if(q.includes("água") || q.includes("irrigação")) return respostasIA.respAgua;
+            if(q.includes("dica")) return respostasIA.respDicas;
+            return respostasIA.default;
+        }
+
+        const chatbot = document.getElementById('chatbot');
+        const toggleBtn = document.getElementById('chatbotToggle');
+        const messagesDiv = document.getElementById('chatbotMessages');
+        const inputField = document.getElementById('chatbotInput');
+        const sendBtn = document.getElementById('chatbotSendBtn');
+        let isMinimized = false;
+        if(toggleBtn) toggleBtn.addEventListener('click', () => {
+            isMinimized = !isMinimized;
+            if(isMinimized) { chatbot.classList.add('minimized'); toggleBtn.innerHTML = '🗕'; }
+            else { chatbot.classList.remove('minimized'); toggleBtn.innerHTML = '🗖'; }
+        });
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.innerHTML = `<div class="message-content">${text}</div>`;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `<div class="message-content"><span style="animation: pulse 1s infinite;">●</span> <span style="animation: pulse 1s infinite 0.2s;">●</span> <span style="animation: pulse 1s infinite 0.4s;">●</span></div>`;
+            messagesDiv.appendChild(typingDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        function removeTyping() { const typing = document.getElementById('typingIndicator'); if(typing) typing.remove(); }
+        function enviarMensagem() {
+            const pergunta = inputField.value.trim();
+            if(!pergunta) return;
+            addMessage(pergunta, true);
+            inputField.value = '';
+            showTyping();
+            setTimeout(() => { removeTyping(); addMessage(perguntarIA(pergunta), false); }, 500);
+        }
+        if(sendBtn) sendBtn.addEventListener('click', enviarMensagem);
+        if(inputField) inputField.addEventListener('keypress', (e) => { if(e.key === 'Enter') enviarMensagem(); });
+    </script>
+</body>
+</html>
